@@ -40,5 +40,16 @@ class Array
         end
         count == self.length
     end
+
+    def my_flatten
+        return [self] if !self.is_a?(Array)
+
+        if self[0].is_a?(Array)
+            self[0].my_flatten + self[1..-1].my_flatten
+        else
+            self[0] + self[1..-1].my_flatten
+        end
+    end
+
     
 end
