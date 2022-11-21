@@ -54,7 +54,29 @@ class Array
         flattened
     end
 
-    
+    def my_zip(*args)
+        arr = Array.new(self.length) {Array.new(args.length+1, nil)}
+        self.each_with_index do |ele, idx|
+            arr[idx][0] = ele
+        end
+
+        args.each_with_index do |sub, idx|
+            (0...self.length).each do |jdx|
+            arr[jdx][idx+1] = sub[jdx]
+            end
+        end
+        arr
+    end
+
+    def my_rotate(rotate=1)
+        arr = self.clone
+        if rotate > 0
+            rotate.times do
+                arr.push(arr.shift)
+            end
+        end
+        arr
+    end
 
 
 end
