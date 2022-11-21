@@ -96,10 +96,13 @@ class Array
 
     def my_reverse
         arr = []
-        (0...arr.length).each do |idx|
-            arr += self[1..-1] + [self[0]]
+        (self.length-1).downto(0) .each do |idx|
+            arr << self[idx]
         end
         arr
+    end
+
+    def factors(num)
     end
 
 end
