@@ -74,9 +74,32 @@ class Array
             rotate.times do
                 arr.push(arr.shift)
             end
+        else
+            (-rotate).times do
+                arr.unshift(arr.pop)
+            end
         end
         arr
     end
 
+    def my_join(sep = "")
+        str = ""
+        (0...self.length).each do |i|
+            if i != self.length - 1
+                str += self[i] + sep 
+            else
+                str += self[i]
+            end
+        end
+        str
+    end
+
+    def my_reverse
+        arr = []
+        (0...arr.length).each do |idx|
+            arr += self[1..-1] + [self[0]]
+        end
+        arr
+    end
 
 end
