@@ -43,13 +43,18 @@ class Array
 
     def my_flatten
         return [self] if !self.is_a?(Array)
-
-        if self[0].is_a?(Array)
-            self[0].my_flatten + self[1..-1].my_flatten
-        else
-            self[0] + self[1..-1].my_flatten
+        flattened = []
+        (0...self.length).each do |idx|
+            if self[idx].is_a?(Array)
+                flattened += self[idx].my_flatten
+            else
+                flattened += [self[idx]]
+            end
         end
+        flattened
     end
 
     
+
+
 end
