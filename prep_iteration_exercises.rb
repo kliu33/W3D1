@@ -66,7 +66,20 @@ class Array
   end
 
   def bubble_sort(&prc)
+    arr = self.clone
+    sorted = false
+    while !sorted
+      sorted = true
+      (0...arr.length).each do |idx|
+        if prc.call(arr[idx], arr[idx+1]) == 1
+          arr[idx], arr[idx +1] = arr[idx +1], arr[idx]
+          sorted = false
+        end
+      end
+    end
+    arr
   end
+
 end
 
 # ### Substrings and Subwords
@@ -83,9 +96,17 @@ end
 # words).
 
 def substrings(string)
+  arr = []
+  (0...string.length).each do |start_idx|
+    (start_idx...string.length).each do |end_idx|
+      arr << string[start_idx..end_idx]
+    end
+  end
+  arr
 end
 
 def subwords(word, dictionary)
+
 end
 
 # ### Doubler
@@ -93,6 +114,11 @@ end
 # array with the original elements multiplied by two.
 
 def doubler(array)
+  arr = []
+  array.each do |ele|
+    arr << ele * 2
+  end
+  arr
 end
 
 # ### My Each
@@ -120,6 +146,7 @@ end
 
 class Array
   def my_each(&prc)
+    
   end
 end
 
